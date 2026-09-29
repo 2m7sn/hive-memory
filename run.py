@@ -150,6 +150,8 @@ def main():
     os.system("")  # switches on ANSI colours in old Windows consoles; no-op elsewhere
     client = None
     if a.claude:
+        if not os.environ.get("ANTHROPIC_API_KEY"):
+            ap.error("--claude needs ANTHROPIC_API_KEY set (or run without --claude for the free sim)")
         import anthropic
         client = anthropic.Anthropic()
     brain = "claude" if a.claude else "sim"
