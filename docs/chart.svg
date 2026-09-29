@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="system-ui,sans-serif" font-size="12"><rect width="640" height="300" rx="10" fill="#0f172a"/>
+<line x1="56" x2="520" y1="24" y2="24" stroke="#334155"/><text x="48" y="28" text-anchor="end" fill="#94a3b8">100%</text>
+<line x1="56" x2="520" y1="82.0" y2="82.0" stroke="#334155"/><text x="48" y="86.0" text-anchor="end" fill="#94a3b8">75%</text>
+<line x1="56" x2="520" y1="140.0" y2="140.0" stroke="#334155"/><text x="48" y="144.0" text-anchor="end" fill="#94a3b8">50%</text>
+<line x1="56" x2="520" y1="198.0" y2="198.0" stroke="#334155"/><text x="48" y="202.0" text-anchor="end" fill="#94a3b8">25%</text>
+<line x1="56" x2="520" y1="256" y2="256" stroke="#334155"/><text x="48" y="260" text-anchor="end" fill="#94a3b8">0%</text>
+<text x="56.0" y="282" text-anchor="middle" fill="#94a3b8">round 1</text>
+<text x="288.0" y="282" text-anchor="middle" fill="#94a3b8">round 2</text>
+<text x="520.0" y="282" text-anchor="middle" fill="#94a3b8">round 3</text>
+<text x="56" y="15" fill="#e2e8f0" font-weight="600">error rate (lower is smarter)</text>
+<polyline points="56.0,21.0 288.0,21.0 520.0,21.0" fill="none" stroke="#9ca3af" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="56.0" cy="21.0" r="4" fill="#9ca3af"/>
+<circle cx="288.0" cy="21.0" r="4" fill="#9ca3af"/>
+<circle cx="520.0" cy="21.0" r="4" fill="#9ca3af"/>
+<text x="534" y="44" fill="#9ca3af" font-weight="600">● none</text>
+<polyline points="56.0,23.0 288.0,23.0 520.0,23.0" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="56.0" cy="23.0" r="4" fill="#f59e0b"/>
+<circle cx="288.0" cy="23.0" r="4" fill="#f59e0b"/>
+<circle cx="520.0" cy="23.0" r="4" fill="#f59e0b"/>
+<text x="534" y="66" fill="#f59e0b" font-weight="600">● solo</text>
+<polyline points="56.0,25.0 288.0,257.0 520.0,257.0" fill="none" stroke="#10b981" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="56.0" cy="25.0" r="4" fill="#10b981"/>
+<circle cx="288.0" cy="257.0" r="4" fill="#10b981"/>
+<circle cx="520.0" cy="257.0" r="4" fill="#10b981"/>
+<text x="534" y="88" fill="#10b981" font-weight="600">● hive</text>
+<polyline points="56.0,27.0 288.0,27.0 520.0,259.0" fill="none" stroke="#ef4444" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="56.0" cy="27.0" r="4" fill="#ef4444"/>
+<circle cx="288.0" cy="27.0" r="4" fill="#ef4444"/>
+<circle cx="520.0" cy="259.0" r="4" fill="#ef4444"/>
+<text x="534" y="110" fill="#ef4444" font-weight="600">● poison</text>
+</svg>
