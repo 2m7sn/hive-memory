@@ -10,6 +10,8 @@ Same tasks run under four conditions so the effect of shared memory is isolated:
 import argparse
 import html
 import json
+import os
+import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -141,13 +143,18 @@ def main():
     ap.add_argument("--modes", default="none,solo,hive,poison")
     ap.add_argument("--out", default="out")
     a = ap.parse_args()
+    modes = a.modes.split(",")
+    if bad := set(modes) - set(COLORS):
+        ap.error(f"unknown mode(s): {', '.join(bad)} (choose from {', '.join(COLORS)})")
+    sys.stdout.reconfigure(encoding="utf-8")  # Windows consoles default to cp1252 and choke on ✓/🐝
+    os.system("")  # switches on ANSI colours in old Windows consoles; no-op elsewhere
     client = None
     if a.claude:
         import anthropic
         client = anthropic.Anthropic()
     brain = "claude" if a.claude else "sim"
     print(f"\n🐝 Hive Memory · brain={brain}\n")
-    results = [run(m, brain, client) for m in a.modes.split(",")]
+    results = [run(m, brain, client) for m in modes]
     out = Path(a.out)
     out.mkdir(exist_ok=True)
     svg = chart_svg(results)

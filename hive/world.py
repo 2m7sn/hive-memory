@@ -40,7 +40,10 @@ class Task:
         return [self.source, "dates", "amounts"]
 
     def check(self, ans):
-        return ans is not None and abs(float(ans) - self.answer) < 0.01
+        try:
+            return abs(float(ans) - self.answer) < 0.01
+        except (TypeError, ValueError):  # None, "about 300", ... from an LLM
+            return False
 
 
 class Env:

@@ -160,8 +160,9 @@ def claude_reflect(env, answer, lessons, client):
               "agent on a DIFFERENT dataset from making this mistake. No task-specific numbers.\n"
               'Reply with JSON only: {"lesson": "...", "tags": [subset of "api","csv","dates","amounts"]}')
     r = client.messages.create(model=MODEL, max_tokens=1000, messages=[{"role": "user", "content": prompt}])
-    m = re.search(r"\{.*\}", r.content[0].text, re.S)
-    if not m:
-        return []
-    j = json.loads(m.group())
-    return [(None, j["lesson"], j.get("tags") or ["api", "csv", "dates", "amounts"])]
+    text = "".join(b.text for b in r.content if b.type == "text")
+    try:
+        j = json.loads(re.search(r"\{.*\}", text, re.S).group())
+        return [(None, str(j["lesson"]), j.get("tags") or ["api", "csv", "dates", "amounts"])]
+    except (AttributeError, ValueError, KeyError, TypeError):
+        return []  # unusable reflection: skip the lesson, keep the run alive
